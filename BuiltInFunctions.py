@@ -23,7 +23,7 @@ builtIns = {
 	'nth'    : lambda x: x[1][x[0]],
 	'length' : lambda x: evalLength(x[0]),
 
-	'print'  : lambda x: evalPrint(x[0]),
+	'println'  : lambda x: evalPrint(x[0]),
 	'def'   : lambda x: evalSetq(x),
 
 	'if'	 : lambda x: (x[2], x[1])[x[0] != "NIL"]
