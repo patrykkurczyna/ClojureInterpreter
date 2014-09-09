@@ -46,17 +46,17 @@ def evalEq(x):
 def evalNot(x):
 	if len(x) != 1 or x[0]==None:
 		raise FunctionNotFound
-	return "true" if (x[0] == "nil" or x[0] == "false") else "false"
+	return "true" if x[0] == "false" else "false"
 
 def evalAnd(x):
 	for i in range(len(x)):
-		if x[i] == "false":
+		if x[i] == "false" or x[i]=="nil":
 			return "false"
 	return x[len(x)-1]
 
 def evalOr(x):
 	for i in range(len(x)):
-		if x[i] != "false":
+		if x[i] != "false" and x[i] != "nil":
 			return x[i]
 	return "false"
 
