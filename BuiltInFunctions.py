@@ -19,14 +19,14 @@ builtIns = {
 
 	'first'    : lambda x: x[0][0],
 	'rest'    : lambda x: x[0][1:],
-	'.substring' : lambda x: x[2][x[0]:x[1]],
+	'substring' : lambda x: x[2][x[0]:x[1]],
 	'nth'    : lambda x: x[1][x[0]],
-	'.length' : lambda x: evalLength(x[0]),
+	'length' : lambda x: evalLength(x[0]),
 
 	'print'  : lambda x: evalPrint(x[0]),
 	'def'   : lambda x: evalSetq(x),
 
-	'if'	 : lambda x: (x[2], x[1])[x[0] != "false"]
+	'if'	 : lambda x: (x[2], x[1])[x[0] != "NIL"]
 }
 
 def evalBoolExpr(x, sign):
