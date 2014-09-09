@@ -10,8 +10,9 @@ class Interpreter(object):
     functionMemory = MemoryStack()
     functions = []
 
-    globalMemory.insert("NIL", "NIL")
-    globalMemory.insert("T", "T")
+    globalMemory.insert("nil", "nil")
+    globalMemory.insert("true", "true")
+    globalMemory.insert("false", "false")
 
 
     @on('node')
@@ -35,10 +36,10 @@ class Interpreter(object):
         map(lambda x: x.accept2(self), node.args)
         function = None
         try:            
-            if(node.function_name == 'setq'):
+            if(node.function_name == 'def'):
                 if len(node.args) != 2:
                     raise FunctionNotFound
-                res = builtIns['setq']([node.args[0].value.name, Interpreter.evalNode(self, node.args[1])])
+                res = builtIns['def']([node.args[0].value.name, Interpreter.evalNode(self, node.args[1])])
             else:
                 if(node.function_name not in builtIns):
                     raise FunctionNotFound
@@ -94,7 +95,7 @@ class Interpreter(object):
     @when(AST.WhileInstr)
     def visit(self, node):
         retval = None
-        while (node.condition.accept2(self) == "NIL"):
+        while (node.condition.accept2(self) == "nil"):
             map(lambda x: x.accept2(self), node.instructions[:-1])
             retval = node.instructions[-1].accept2(self)
         node.return_value = retval
