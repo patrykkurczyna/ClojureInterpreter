@@ -34,7 +34,7 @@
 (println "(println ''HelloWorld'') = ") (println "HelloWorld")
 (println "========PRZYPISANIE I WYRAZENIE WARUNKOWE========")
 (println "(def x 5) = ") (println (def x 5))
-(println "x = ") x
+(println "x = ") (println x)
 (println "(def x 3) = ") (println (def x 3))
 (println "x = ") (println x)
 (println "(if (= 3 3) (+ 3 3) (+ 4 4)) = ") (println (if (= x 3) (+ 3 3) (+ 4 4)))
