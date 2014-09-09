@@ -42,5 +42,5 @@
 (println "========PETLA========")
 (println "(loop (= x 0) (def x (- x 1)) (println x)) = ") (loop (= x 0) (def x (- x 1)) (println x))
 (println "========DEFINIOWANIE WLASNYCH FUNKCJI========")
-(println "(defun sum (x y) (+ x x) (+ x y))") (defun sum (x y) (+ x x) (+ x y))
+(println "(defn sum (x y) (+ x x) (+ x y))") (defn sum (x y) (+ x x) (+ x y))
 (println "(sum 2 3) = ") (sum 2 3)

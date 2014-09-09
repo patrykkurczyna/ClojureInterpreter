@@ -27,7 +27,7 @@ class Scanner(object):
 
 
   reserved = {
-    'defun'   : "DEFUN",
+    'defn'   : "defn",
     'loop'    : 'LOOP'
   }
 
