@@ -69,7 +69,7 @@ class Scanner(object):
       return t
 
   def t_ID(self,t):
-      r"[a-zA-Z_]\w*|\+|-|/|\*|<=|>=|<|>"
+      r"[a-zA-Z_]\w*|\+|-|/|\*|<=|>=|<|>|="
       t.type = Scanner.reserved.get(t.value, 'ID')
       return t
 
