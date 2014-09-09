@@ -17,6 +17,8 @@
 (println "(= 2 1) = " ) (println (= 2 1))
 (println "========OPERACJE LOGICZNE========")
 (println "(not nil) = " ) (println (not nil))
+(println "(not false) = " ) (println (not false))
+(println "(not true) = " ) (println (not true))
 (println "(not (< 1 2)) = " ) (println (not (< 1 2)))
 (println "(and 2 4 3) = " ) (println (and 2 4 3))
 (println "(and 2 nil 3) = " ) (println (and 2 nil 3))
