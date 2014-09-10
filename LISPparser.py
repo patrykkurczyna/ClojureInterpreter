@@ -53,6 +53,7 @@ class LISPparser(object):
         """atom : INTEGER
                  | FLOAT
                  | STRING
+                 | KEYWORD
                  | BRACKET expr_list ')'
                  | SQBRACKET expr_list ']'
                  | idname"""

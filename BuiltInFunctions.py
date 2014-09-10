@@ -18,29 +18,23 @@ builtIns = {
 	'and' : lambda x: evalAnd(x),
 	'or' : lambda x: evalOr(x),
 
-	'first'    : lambda x: evalFirst(x),
+	'first'    : lambda x: x[0][0],
 	'rest'    : lambda x: x[0][1:],
 	'substring' : lambda x: x[2][x[0]:x[1]],
 	'nth'    : lambda x: x[1][x[0]],
 	'length' : lambda x: evalLength(x[0]),
 
 	'list' : lambda x: evalList(x),
-	'vector' : lambda x: evalVector(x),
+	#'vector' : lambda x: evalVector(x),
 	'map' : lambda x: evalMap(x),
 	'set' : lambda x: evalSet(x),
-	'array-map' : lambda x: evalArrayMap(x),
+        'arraymap' : lambda x: evalArrayMap(x),
 	
 	'println'  : lambda x: evalPrint(x[0]),
 	'def'   : lambda x: evalSetq(x),
 
 	'if'	 : lambda x: (x[2], x[1])[x[0] != "nil" and x[0] != "false"]
 }
-
-def evalFirst(x):
-    if x[0] != "nil":
-        return x[0][0]
-    else:
-        return ""
 
 def evalBoolExpr(x, sign):
 	for i in range(len(x)-1):
@@ -59,7 +53,7 @@ def evalEq(x):
 def evalNot(x):
 	if len(x) != 1 or x[0]==None:
 		raise FunctionNotFound
-	return "true" if (x[0] == "false" or x[0] == "nil") else "false"
+	return "true" if x[0] == "false" else "false"
 
 def evalAnd(x):
 	for i in range(len(x)):
@@ -91,8 +85,8 @@ def evalSetq(x):
 def evalList(x):
     return list(x)
 
-def evalVector(x):
-	return list(x)
+#def evalVector(x):
+#	return list(x)
 
 def evalMap(x):
         retList=list()
@@ -117,6 +111,7 @@ def evalSet(x):
 	return retSet
 
 def evalArrayMap(x):
+        print x
 	if len(x)==2:
 		retDict=dict()
 		i=0

@@ -32,7 +32,7 @@ class Scanner(object):
   }
 
 
-  tokens = [ "FLOAT", "ID", "INTEGER", "STRING", "BRACKET", "SQBRACKET"
+  tokens = [ "FLOAT", "ID", "INTEGER", "STRING", "KEYWORD", "BRACKET", "SQBRACKET"
            ] + list(reserved.values())
            
 
@@ -66,6 +66,10 @@ class Scanner(object):
   
   def t_STRING(self,t):
       r'\"([^\\\n]|(\\.))*?\"'
+      return t
+
+  def t_KEYWORD(self,t):
+      r':(\w)?'
       return t
 
   def t_ID(self,t):

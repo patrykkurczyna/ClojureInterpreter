@@ -13,27 +13,29 @@ Rule 7     expression -> atom
 Rule 8     atom -> INTEGER
 Rule 9     atom -> FLOAT
 Rule 10    atom -> STRING
-Rule 11    atom -> BRACKET expr_list )
-Rule 12    atom -> SQBRACKET expr_list ]
-Rule 13    atom -> idname
-Rule 14    idname -> ID
-Rule 15    vector -> [ ]
-Rule 16    vector -> [ expr_list ]
-Rule 17    list -> ( )
-Rule 18    list -> ( expr_list )
+Rule 11    atom -> KEYWORD
+Rule 12    atom -> BRACKET expr_list )
+Rule 13    atom -> SQBRACKET expr_list ]
+Rule 14    atom -> idname
+Rule 15    idname -> ID
+Rule 16    vector -> [ ]
+Rule 17    vector -> [ expr_list ]
+Rule 18    list -> ( )
+Rule 19    list -> ( expr_list )
 
 Terminals, with rules where they appear
 
-(                    : 4 5 6 17 18
-)                    : 4 5 6 11 17 18
-BRACKET              : 11
+(                    : 4 5 6 18 19
+)                    : 4 5 6 12 18 19
+BRACKET              : 12
 FLOAT                : 9
-ID                   : 4 5 14
+ID                   : 4 5 15
 INTEGER              : 8
-SQBRACKET            : 12
+KEYWORD              : 11
+SQBRACKET            : 13
 STRING               : 10
-[                    : 15 16
-]                    : 12 15 16
+[                    : 16 17
+]                    : 13 16 17
 defn                 : 5
 error                : 
 loop                 : 6
@@ -41,9 +43,9 @@ loop                 : 6
 Nonterminals, with rules where they appear
 
 atom                 : 7
-expr_list            : 1 2 4 5 6 11 12 16 18
+expr_list            : 1 2 4 5 6 12 13 17 19
 expression           : 2 3 6
-idname               : 13
+idname               : 14
 input                : 0
 list                 : 
 vector               : 5
@@ -63,133 +65,126 @@ state 0
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expr_list                      shift and go to state 8
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
-    input                          shift and go to state 9
-    expression                     shift and go to state 11
+    expr_list                      shift and go to state 9
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
+    input                          shift and go to state 10
+    expression                     shift and go to state 12
 
 state 1
 
-    (9) atom -> FLOAT .
+    (14) atom -> idname .
 
-    )               reduce using rule 9 (atom -> FLOAT .)
-    (               reduce using rule 9 (atom -> FLOAT .)
-    INTEGER         reduce using rule 9 (atom -> FLOAT .)
-    FLOAT           reduce using rule 9 (atom -> FLOAT .)
-    STRING          reduce using rule 9 (atom -> FLOAT .)
-    BRACKET         reduce using rule 9 (atom -> FLOAT .)
-    SQBRACKET       reduce using rule 9 (atom -> FLOAT .)
-    ID              reduce using rule 9 (atom -> FLOAT .)
-    $end            reduce using rule 9 (atom -> FLOAT .)
-    ]               reduce using rule 9 (atom -> FLOAT .)
+    ]               reduce using rule 14 (atom -> idname .)
+    (               reduce using rule 14 (atom -> idname .)
+    INTEGER         reduce using rule 14 (atom -> idname .)
+    FLOAT           reduce using rule 14 (atom -> idname .)
+    STRING          reduce using rule 14 (atom -> idname .)
+    KEYWORD         reduce using rule 14 (atom -> idname .)
+    BRACKET         reduce using rule 14 (atom -> idname .)
+    SQBRACKET       reduce using rule 14 (atom -> idname .)
+    ID              reduce using rule 14 (atom -> idname .)
+    )               reduce using rule 14 (atom -> idname .)
+    $end            reduce using rule 14 (atom -> idname .)
 
 
 state 2
 
-    (10) atom -> STRING .
+    (9) atom -> FLOAT .
 
-    )               reduce using rule 10 (atom -> STRING .)
-    (               reduce using rule 10 (atom -> STRING .)
-    INTEGER         reduce using rule 10 (atom -> STRING .)
-    FLOAT           reduce using rule 10 (atom -> STRING .)
-    STRING          reduce using rule 10 (atom -> STRING .)
-    BRACKET         reduce using rule 10 (atom -> STRING .)
-    SQBRACKET       reduce using rule 10 (atom -> STRING .)
-    ID              reduce using rule 10 (atom -> STRING .)
-    $end            reduce using rule 10 (atom -> STRING .)
-    ]               reduce using rule 10 (atom -> STRING .)
+    ]               reduce using rule 9 (atom -> FLOAT .)
+    (               reduce using rule 9 (atom -> FLOAT .)
+    INTEGER         reduce using rule 9 (atom -> FLOAT .)
+    FLOAT           reduce using rule 9 (atom -> FLOAT .)
+    STRING          reduce using rule 9 (atom -> FLOAT .)
+    KEYWORD         reduce using rule 9 (atom -> FLOAT .)
+    BRACKET         reduce using rule 9 (atom -> FLOAT .)
+    SQBRACKET       reduce using rule 9 (atom -> FLOAT .)
+    ID              reduce using rule 9 (atom -> FLOAT .)
+    )               reduce using rule 9 (atom -> FLOAT .)
+    $end            reduce using rule 9 (atom -> FLOAT .)
 
 
 state 3
 
-    (13) atom -> idname .
+    (10) atom -> STRING .
 
-    )               reduce using rule 13 (atom -> idname .)
-    (               reduce using rule 13 (atom -> idname .)
-    INTEGER         reduce using rule 13 (atom -> idname .)
-    FLOAT           reduce using rule 13 (atom -> idname .)
-    STRING          reduce using rule 13 (atom -> idname .)
-    BRACKET         reduce using rule 13 (atom -> idname .)
-    SQBRACKET       reduce using rule 13 (atom -> idname .)
-    ID              reduce using rule 13 (atom -> idname .)
-    $end            reduce using rule 13 (atom -> idname .)
-    ]               reduce using rule 13 (atom -> idname .)
+    ]               reduce using rule 10 (atom -> STRING .)
+    (               reduce using rule 10 (atom -> STRING .)
+    INTEGER         reduce using rule 10 (atom -> STRING .)
+    FLOAT           reduce using rule 10 (atom -> STRING .)
+    STRING          reduce using rule 10 (atom -> STRING .)
+    KEYWORD         reduce using rule 10 (atom -> STRING .)
+    BRACKET         reduce using rule 10 (atom -> STRING .)
+    SQBRACKET       reduce using rule 10 (atom -> STRING .)
+    ID              reduce using rule 10 (atom -> STRING .)
+    )               reduce using rule 10 (atom -> STRING .)
+    $end            reduce using rule 10 (atom -> STRING .)
 
 
 state 4
+
+    (11) atom -> KEYWORD .
+
+    ]               reduce using rule 11 (atom -> KEYWORD .)
+    (               reduce using rule 11 (atom -> KEYWORD .)
+    INTEGER         reduce using rule 11 (atom -> KEYWORD .)
+    FLOAT           reduce using rule 11 (atom -> KEYWORD .)
+    STRING          reduce using rule 11 (atom -> KEYWORD .)
+    KEYWORD         reduce using rule 11 (atom -> KEYWORD .)
+    BRACKET         reduce using rule 11 (atom -> KEYWORD .)
+    SQBRACKET       reduce using rule 11 (atom -> KEYWORD .)
+    ID              reduce using rule 11 (atom -> KEYWORD .)
+    )               reduce using rule 11 (atom -> KEYWORD .)
+    $end            reduce using rule 11 (atom -> KEYWORD .)
+
+
+state 5
 
     (4) expression -> ( . ID expr_list )
     (5) expression -> ( . defn ID vector expr_list )
     (6) expression -> ( . loop expression expr_list )
 
-    ID              shift and go to state 13
-    defn            shift and go to state 14
-    loop            shift and go to state 15
-
-
-state 5
-
-    (7) expression -> atom .
-
-    (               reduce using rule 7 (expression -> atom .)
-    INTEGER         reduce using rule 7 (expression -> atom .)
-    FLOAT           reduce using rule 7 (expression -> atom .)
-    STRING          reduce using rule 7 (expression -> atom .)
-    BRACKET         reduce using rule 7 (expression -> atom .)
-    SQBRACKET       reduce using rule 7 (expression -> atom .)
-    ID              reduce using rule 7 (expression -> atom .)
-    )               reduce using rule 7 (expression -> atom .)
-    ]               reduce using rule 7 (expression -> atom .)
-    $end            reduce using rule 7 (expression -> atom .)
+    ID              shift and go to state 14
+    defn            shift and go to state 15
+    loop            shift and go to state 16
 
 
 state 6
 
-    (11) atom -> BRACKET . expr_list )
-    (2) expr_list -> . expr_list expression
-    (3) expr_list -> . expression
-    (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defn ID vector expr_list )
-    (6) expression -> . ( loop expression expr_list )
-    (7) expression -> . atom
-    (8) atom -> . INTEGER
-    (9) atom -> . FLOAT
-    (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (7) expression -> atom .
 
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    )               reduce using rule 7 (expression -> atom .)
+    (               reduce using rule 7 (expression -> atom .)
+    INTEGER         reduce using rule 7 (expression -> atom .)
+    FLOAT           reduce using rule 7 (expression -> atom .)
+    STRING          reduce using rule 7 (expression -> atom .)
+    KEYWORD         reduce using rule 7 (expression -> atom .)
+    BRACKET         reduce using rule 7 (expression -> atom .)
+    SQBRACKET       reduce using rule 7 (expression -> atom .)
+    ID              reduce using rule 7 (expression -> atom .)
+    $end            reduce using rule 7 (expression -> atom .)
+    ]               reduce using rule 7 (expression -> atom .)
 
-    expr_list                      shift and go to state 16
-    expression                     shift and go to state 11
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
 
 state 7
 
-    (12) atom -> SQBRACKET . expr_list ]
+    (12) atom -> BRACKET . expr_list )
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
@@ -199,25 +194,59 @@ state 7
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
     expr_list                      shift and go to state 17
-    expression                     shift and go to state 11
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expression                     shift and go to state 12
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
 state 8
+
+    (13) atom -> SQBRACKET . expr_list ]
+    (2) expr_list -> . expr_list expression
+    (3) expr_list -> . expression
+    (4) expression -> . ( ID expr_list )
+    (5) expression -> . ( defn ID vector expr_list )
+    (6) expression -> . ( loop expression expr_list )
+    (7) expression -> . atom
+    (8) atom -> . INTEGER
+    (9) atom -> . FLOAT
+    (10) atom -> . STRING
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
+
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
+
+    expr_list                      shift and go to state 18
+    expression                     shift and go to state 12
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
+
+state 9
 
     (1) input -> expr_list .
     (2) expr_list -> expr_list . expression
@@ -228,79 +257,84 @@ state 8
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
     $end            reduce using rule 1 (input -> expr_list .)
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expression                     shift and go to state 18
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expression                     shift and go to state 19
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
-state 9
+state 10
 
     (0) S' -> input .
 
 
 
-state 10
+state 11
 
     (8) atom -> INTEGER .
 
-    )               reduce using rule 8 (atom -> INTEGER .)
+    ]               reduce using rule 8 (atom -> INTEGER .)
     (               reduce using rule 8 (atom -> INTEGER .)
     INTEGER         reduce using rule 8 (atom -> INTEGER .)
     FLOAT           reduce using rule 8 (atom -> INTEGER .)
     STRING          reduce using rule 8 (atom -> INTEGER .)
+    KEYWORD         reduce using rule 8 (atom -> INTEGER .)
     BRACKET         reduce using rule 8 (atom -> INTEGER .)
     SQBRACKET       reduce using rule 8 (atom -> INTEGER .)
     ID              reduce using rule 8 (atom -> INTEGER .)
+    )               reduce using rule 8 (atom -> INTEGER .)
     $end            reduce using rule 8 (atom -> INTEGER .)
-    ]               reduce using rule 8 (atom -> INTEGER .)
-
-
-state 11
-
-    (3) expr_list -> expression .
-
-    )               reduce using rule 3 (expr_list -> expression .)
-    (               reduce using rule 3 (expr_list -> expression .)
-    INTEGER         reduce using rule 3 (expr_list -> expression .)
-    FLOAT           reduce using rule 3 (expr_list -> expression .)
-    STRING          reduce using rule 3 (expr_list -> expression .)
-    BRACKET         reduce using rule 3 (expr_list -> expression .)
-    SQBRACKET       reduce using rule 3 (expr_list -> expression .)
-    ID              reduce using rule 3 (expr_list -> expression .)
-    ]               reduce using rule 3 (expr_list -> expression .)
-    $end            reduce using rule 3 (expr_list -> expression .)
 
 
 state 12
 
-    (14) idname -> ID .
+    (3) expr_list -> expression .
 
-    (               reduce using rule 14 (idname -> ID .)
-    INTEGER         reduce using rule 14 (idname -> ID .)
-    FLOAT           reduce using rule 14 (idname -> ID .)
-    STRING          reduce using rule 14 (idname -> ID .)
-    BRACKET         reduce using rule 14 (idname -> ID .)
-    SQBRACKET       reduce using rule 14 (idname -> ID .)
-    ID              reduce using rule 14 (idname -> ID .)
-    $end            reduce using rule 14 (idname -> ID .)
-    ]               reduce using rule 14 (idname -> ID .)
-    )               reduce using rule 14 (idname -> ID .)
+    ]               reduce using rule 3 (expr_list -> expression .)
+    (               reduce using rule 3 (expr_list -> expression .)
+    INTEGER         reduce using rule 3 (expr_list -> expression .)
+    FLOAT           reduce using rule 3 (expr_list -> expression .)
+    STRING          reduce using rule 3 (expr_list -> expression .)
+    KEYWORD         reduce using rule 3 (expr_list -> expression .)
+    BRACKET         reduce using rule 3 (expr_list -> expression .)
+    SQBRACKET       reduce using rule 3 (expr_list -> expression .)
+    ID              reduce using rule 3 (expr_list -> expression .)
+    )               reduce using rule 3 (expr_list -> expression .)
+    $end            reduce using rule 3 (expr_list -> expression .)
 
 
 state 13
+
+    (15) idname -> ID .
+
+    ]               reduce using rule 15 (idname -> ID .)
+    (               reduce using rule 15 (idname -> ID .)
+    INTEGER         reduce using rule 15 (idname -> ID .)
+    FLOAT           reduce using rule 15 (idname -> ID .)
+    STRING          reduce using rule 15 (idname -> ID .)
+    KEYWORD         reduce using rule 15 (idname -> ID .)
+    BRACKET         reduce using rule 15 (idname -> ID .)
+    SQBRACKET       reduce using rule 15 (idname -> ID .)
+    ID              reduce using rule 15 (idname -> ID .)
+    )               reduce using rule 15 (idname -> ID .)
+    $end            reduce using rule 15 (idname -> ID .)
+
+
+state 14
 
     (4) expression -> ( ID . expr_list )
     (2) expr_list -> . expr_list expression
@@ -312,32 +346,34 @@ state 13
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expr_list                      shift and go to state 19
-    expression                     shift and go to state 11
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expr_list                      shift and go to state 20
+    expression                     shift and go to state 12
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
-state 14
+state 15
 
     (5) expression -> ( defn . ID vector expr_list )
 
-    ID              shift and go to state 20
+    ID              shift and go to state 21
 
 
-state 15
+state 16
 
     (6) expression -> ( loop . expression expr_list )
     (4) expression -> . ( ID expr_list )
@@ -347,55 +383,28 @@ state 15
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expression                     shift and go to state 21
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
-
-state 16
-
-    (11) atom -> BRACKET expr_list . )
-    (2) expr_list -> expr_list . expression
-    (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defn ID vector expr_list )
-    (6) expression -> . ( loop expression expr_list )
-    (7) expression -> . atom
-    (8) atom -> . INTEGER
-    (9) atom -> . FLOAT
-    (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
-
-    )               shift and go to state 22
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
-
-    expression                     shift and go to state 18
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expression                     shift and go to state 22
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
 state 17
 
-    (12) atom -> SQBRACKET expr_list . ]
+    (12) atom -> BRACKET expr_list . )
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
     (5) expression -> . ( defn ID vector expr_list )
@@ -404,41 +413,75 @@ state 17
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    ]               shift and go to state 23
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    )               shift and go to state 23
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expression                     shift and go to state 18
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expression                     shift and go to state 19
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
 state 18
 
+    (13) atom -> SQBRACKET expr_list . ]
+    (2) expr_list -> expr_list . expression
+    (4) expression -> . ( ID expr_list )
+    (5) expression -> . ( defn ID vector expr_list )
+    (6) expression -> . ( loop expression expr_list )
+    (7) expression -> . atom
+    (8) atom -> . INTEGER
+    (9) atom -> . FLOAT
+    (10) atom -> . STRING
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
+
+    ]               shift and go to state 24
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
+
+    expression                     shift and go to state 19
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
+
+state 19
+
     (2) expr_list -> expr_list expression .
 
-    )               reduce using rule 2 (expr_list -> expr_list expression .)
+    ]               reduce using rule 2 (expr_list -> expr_list expression .)
     (               reduce using rule 2 (expr_list -> expr_list expression .)
     INTEGER         reduce using rule 2 (expr_list -> expr_list expression .)
     FLOAT           reduce using rule 2 (expr_list -> expr_list expression .)
     STRING          reduce using rule 2 (expr_list -> expr_list expression .)
+    KEYWORD         reduce using rule 2 (expr_list -> expr_list expression .)
     BRACKET         reduce using rule 2 (expr_list -> expr_list expression .)
     SQBRACKET       reduce using rule 2 (expr_list -> expr_list expression .)
     ID              reduce using rule 2 (expr_list -> expr_list expression .)
-    ]               reduce using rule 2 (expr_list -> expr_list expression .)
+    )               reduce using rule 2 (expr_list -> expr_list expression .)
     $end            reduce using rule 2 (expr_list -> expr_list expression .)
 
 
-state 19
+state 20
 
     (4) expression -> ( ID expr_list . )
     (2) expr_list -> expr_list . expression
@@ -449,35 +492,37 @@ state 19
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    )               shift and go to state 24
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    )               shift and go to state 25
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expression                     shift and go to state 18
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
-
-state 20
-
-    (5) expression -> ( defn ID . vector expr_list )
-    (15) vector -> . [ ]
-    (16) vector -> . [ expr_list ]
-
-    [               shift and go to state 26
-
-    vector                         shift and go to state 25
+    expression                     shift and go to state 19
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
 state 21
+
+    (5) expression -> ( defn ID . vector expr_list )
+    (16) vector -> . [ ]
+    (17) vector -> . [ expr_list ]
+
+    [               shift and go to state 27
+
+    vector                         shift and go to state 26
+
+state 22
 
     (6) expression -> ( loop expression . expr_list )
     (2) expr_list -> . expr_list expression
@@ -489,73 +534,78 @@ state 21
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expr_list                      shift and go to state 27
-    expression                     shift and go to state 11
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
-
-state 22
-
-    (11) atom -> BRACKET expr_list ) .
-
-    )               reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    (               reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    INTEGER         reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    FLOAT           reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    STRING          reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    BRACKET         reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    SQBRACKET       reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    ID              reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    $end            reduce using rule 11 (atom -> BRACKET expr_list ) .)
-    ]               reduce using rule 11 (atom -> BRACKET expr_list ) .)
-
+    expr_list                      shift and go to state 28
+    expression                     shift and go to state 12
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
 state 23
 
-    (12) atom -> SQBRACKET expr_list ] .
+    (12) atom -> BRACKET expr_list ) .
 
-    )               reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    (               reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    INTEGER         reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    FLOAT           reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    STRING          reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    BRACKET         reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    SQBRACKET       reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    ID              reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    $end            reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
-    ]               reduce using rule 12 (atom -> SQBRACKET expr_list ] .)
+    ]               reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    (               reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    INTEGER         reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    FLOAT           reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    STRING          reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    KEYWORD         reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    BRACKET         reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    SQBRACKET       reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    ID              reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    )               reduce using rule 12 (atom -> BRACKET expr_list ) .)
+    $end            reduce using rule 12 (atom -> BRACKET expr_list ) .)
 
 
 state 24
 
+    (13) atom -> SQBRACKET expr_list ] .
+
+    ]               reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    (               reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    INTEGER         reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    FLOAT           reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    STRING          reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    KEYWORD         reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    BRACKET         reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    SQBRACKET       reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    ID              reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    )               reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+    $end            reduce using rule 13 (atom -> SQBRACKET expr_list ] .)
+
+
+state 25
+
     (4) expression -> ( ID expr_list ) .
 
+    )               reduce using rule 4 (expression -> ( ID expr_list ) .)
     (               reduce using rule 4 (expression -> ( ID expr_list ) .)
     INTEGER         reduce using rule 4 (expression -> ( ID expr_list ) .)
     FLOAT           reduce using rule 4 (expression -> ( ID expr_list ) .)
     STRING          reduce using rule 4 (expression -> ( ID expr_list ) .)
+    KEYWORD         reduce using rule 4 (expression -> ( ID expr_list ) .)
     BRACKET         reduce using rule 4 (expression -> ( ID expr_list ) .)
     SQBRACKET       reduce using rule 4 (expression -> ( ID expr_list ) .)
     ID              reduce using rule 4 (expression -> ( ID expr_list ) .)
-    )               reduce using rule 4 (expression -> ( ID expr_list ) .)
-    ]               reduce using rule 4 (expression -> ( ID expr_list ) .)
     $end            reduce using rule 4 (expression -> ( ID expr_list ) .)
+    ]               reduce using rule 4 (expression -> ( ID expr_list ) .)
 
 
-state 25
+state 26
 
     (5) expression -> ( defn ID vector . expr_list )
     (2) expr_list -> . expr_list expression
@@ -567,28 +617,30 @@ state 25
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expr_list                      shift and go to state 28
-    expression                     shift and go to state 11
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expr_list                      shift and go to state 29
+    expression                     shift and go to state 12
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
-state 26
+state 27
 
-    (15) vector -> [ . ]
-    (16) vector -> [ . expr_list ]
+    (16) vector -> [ . ]
+    (17) vector -> [ . expr_list ]
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
@@ -598,26 +650,28 @@ state 26
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    ]               shift and go to state 30
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    ]               shift and go to state 31
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expr_list                      shift and go to state 29
-    expression                     shift and go to state 11
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expr_list                      shift and go to state 30
+    expression                     shift and go to state 12
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
-state 27
+state 28
 
     (6) expression -> ( loop expression expr_list . )
     (2) expr_list -> expr_list . expression
@@ -628,25 +682,27 @@ state 27
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    )               shift and go to state 31
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    )               shift and go to state 32
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expression                     shift and go to state 18
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expression                     shift and go to state 19
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
-state 28
+state 29
 
     (5) expression -> ( defn ID vector expr_list . )
     (2) expr_list -> expr_list . expression
@@ -657,27 +713,29 @@ state 28
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    )               shift and go to state 32
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    )               shift and go to state 33
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expression                     shift and go to state 18
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
+    expression                     shift and go to state 19
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
-state 29
+state 30
 
-    (16) vector -> [ expr_list . ]
+    (17) vector -> [ expr_list . ]
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
     (5) expression -> . ( defn ID vector expr_list )
@@ -686,78 +744,84 @@ state 29
     (8) atom -> . INTEGER
     (9) atom -> . FLOAT
     (10) atom -> . STRING
-    (11) atom -> . BRACKET expr_list )
-    (12) atom -> . SQBRACKET expr_list ]
-    (13) atom -> . idname
-    (14) idname -> . ID
+    (11) atom -> . KEYWORD
+    (12) atom -> . BRACKET expr_list )
+    (13) atom -> . SQBRACKET expr_list ]
+    (14) atom -> . idname
+    (15) idname -> . ID
 
-    ]               shift and go to state 33
-    (               shift and go to state 4
-    INTEGER         shift and go to state 10
-    FLOAT           shift and go to state 1
-    STRING          shift and go to state 2
-    BRACKET         shift and go to state 6
-    SQBRACKET       shift and go to state 7
-    ID              shift and go to state 12
+    ]               shift and go to state 34
+    (               shift and go to state 5
+    INTEGER         shift and go to state 11
+    FLOAT           shift and go to state 2
+    STRING          shift and go to state 3
+    KEYWORD         shift and go to state 4
+    BRACKET         shift and go to state 7
+    SQBRACKET       shift and go to state 8
+    ID              shift and go to state 13
 
-    expression                     shift and go to state 18
-    idname                         shift and go to state 3
-    atom                           shift and go to state 5
-
-state 30
-
-    (15) vector -> [ ] .
-
-    (               reduce using rule 15 (vector -> [ ] .)
-    INTEGER         reduce using rule 15 (vector -> [ ] .)
-    FLOAT           reduce using rule 15 (vector -> [ ] .)
-    STRING          reduce using rule 15 (vector -> [ ] .)
-    BRACKET         reduce using rule 15 (vector -> [ ] .)
-    SQBRACKET       reduce using rule 15 (vector -> [ ] .)
-    ID              reduce using rule 15 (vector -> [ ] .)
-
+    expression                     shift and go to state 19
+    idname                         shift and go to state 1
+    atom                           shift and go to state 6
 
 state 31
 
-    (6) expression -> ( loop expression expr_list ) .
+    (16) vector -> [ ] .
 
-    (               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    INTEGER         reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    FLOAT           reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    STRING          reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    BRACKET         reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    SQBRACKET       reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    ID              reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    )               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    ]               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    $end            reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    (               reduce using rule 16 (vector -> [ ] .)
+    INTEGER         reduce using rule 16 (vector -> [ ] .)
+    FLOAT           reduce using rule 16 (vector -> [ ] .)
+    STRING          reduce using rule 16 (vector -> [ ] .)
+    KEYWORD         reduce using rule 16 (vector -> [ ] .)
+    BRACKET         reduce using rule 16 (vector -> [ ] .)
+    SQBRACKET       reduce using rule 16 (vector -> [ ] .)
+    ID              reduce using rule 16 (vector -> [ ] .)
 
 
 state 32
 
-    (5) expression -> ( defn ID vector expr_list ) .
+    (6) expression -> ( loop expression expr_list ) .
 
-    (               reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    INTEGER         reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    FLOAT           reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    STRING          reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    BRACKET         reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    SQBRACKET       reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    ID              reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    )               reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    ]               reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
-    $end            reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    )               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    (               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    INTEGER         reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    FLOAT           reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    STRING          reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    KEYWORD         reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    BRACKET         reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    SQBRACKET       reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    ID              reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    $end            reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    ]               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
 
 
 state 33
 
-    (16) vector -> [ expr_list ] .
+    (5) expression -> ( defn ID vector expr_list ) .
 
-    (               reduce using rule 16 (vector -> [ expr_list ] .)
-    INTEGER         reduce using rule 16 (vector -> [ expr_list ] .)
-    FLOAT           reduce using rule 16 (vector -> [ expr_list ] .)
-    STRING          reduce using rule 16 (vector -> [ expr_list ] .)
-    BRACKET         reduce using rule 16 (vector -> [ expr_list ] .)
-    SQBRACKET       reduce using rule 16 (vector -> [ expr_list ] .)
-    ID              reduce using rule 16 (vector -> [ expr_list ] .)
+    )               reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    (               reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    INTEGER         reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    FLOAT           reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    STRING          reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    KEYWORD         reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    BRACKET         reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    SQBRACKET       reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    ID              reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    $end            reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+    ]               reduce using rule 5 (expression -> ( defn ID vector expr_list ) .)
+
+
+state 34
+
+    (17) vector -> [ expr_list ] .
+
+    (               reduce using rule 17 (vector -> [ expr_list ] .)
+    INTEGER         reduce using rule 17 (vector -> [ expr_list ] .)
+    FLOAT           reduce using rule 17 (vector -> [ expr_list ] .)
+    STRING          reduce using rule 17 (vector -> [ expr_list ] .)
+    KEYWORD         reduce using rule 17 (vector -> [ expr_list ] .)
+    BRACKET         reduce using rule 17 (vector -> [ expr_list ] .)
+    SQBRACKET       reduce using rule 17 (vector -> [ expr_list ] .)
+    ID              reduce using rule 17 (vector -> [ expr_list ] .)
 
