@@ -14,6 +14,8 @@ class Interpreter(object):
     globalMemory.insert("true", "true")
     globalMemory.insert("false", "false")
 
+    for x in list(builtIns):
+        globalMemory.insert(x,x)
 
     @on('node')
     def visit(self, node):

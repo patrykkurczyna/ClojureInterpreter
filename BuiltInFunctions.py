@@ -94,7 +94,18 @@ def evalVector(x):
 	return list(x)
 
 def evalMap(x):
-	return dict(x)
+        retList=list()
+        if len(x)!=3:
+		raise FunctionNotFound
+	if x[0] not in list(builtIns):
+                raise FunctionNotFound
+        if (not isinstance(x[1],list)) or (not isinstance(x[2],list)):
+                raise FunctionNotFound
+        if len(x[1])!=len(x[2]):
+                raise FunctionNotFound
+        for i in range(0, len(x)-1):
+                retList.append(builtIns[x[0]]([x[1][i],x[2][i]]))
+        return retList
 
 def evalSet(x):
 	if len(x)>1:
