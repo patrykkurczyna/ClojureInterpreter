@@ -67,6 +67,27 @@ class List(Node):
     def getval(self):
         return map(lambda x: x.getval(), self.arguments)
 
+class Vector(Node):
+    def __init__(self):
+        self.type = "Vector"
+        self.arguments = []
+
+    def add_argument(self,argument):
+        self.arguments.append(argument)
+
+    def add_argument_vector(self,argument_list):
+        self.arguments.extend(argument_list)
+
+    def __str__(self):
+        if(len(self.arguments) == 1):
+            return "[" + self.arguments[0].__str__() + "]"
+        res = "["
+        res += reduce((lambda x,y: x.__str__() + " " + y.__str__()), self.arguments)
+        return res + "]"
+
+    def getval(self):
+        return map(lambda x: x.getval(), self.arguments)
+
 class Atom(Node):
     def __init__(self, value):
         self.value = value
