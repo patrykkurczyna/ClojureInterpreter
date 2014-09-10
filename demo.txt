@@ -90,7 +90,7 @@
 (println "--------------------------------------")
 (println "(vector 1 2) = ") (println (vector 1 2))
 (println "--------------------------------------")
-(println "(map (list 1 2) (list 3 4)) = ") (println (map (list 1 2) (list 3 4)))
+(println "(map + (list 1 2) (list 3 4)) = ") (println (map + (list 1 2) (list 3 4)))
 (println "--------------------------------------")
 (println "(set (vector 1 2 2)) = ") (set (vector 1 2 2))
 (println "(set "asdf") = ") (set "asdf")
