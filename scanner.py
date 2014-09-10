@@ -69,7 +69,7 @@ class Scanner(object):
       return t
 
   def t_KEYWORD(self,t):
-      r':(\w)?'
+      r':[a-zA-Z]{1}(\w)*'
       return t
 
   def t_ID(self,t):

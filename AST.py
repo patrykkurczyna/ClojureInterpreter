@@ -101,6 +101,16 @@ class Atom(Node):
     def getval(self):
         return self.value
 
+class Keyword(Node):
+    def __init__(self, value):
+        self.value = str(value)
+
+    def __str__(self):
+            return self.value
+
+    def getval(self):
+        return self.value
+
 class IdName(Node):
     def __init__(self, name):
         self.name = name
