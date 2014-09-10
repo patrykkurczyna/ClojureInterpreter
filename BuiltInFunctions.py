@@ -111,9 +111,11 @@ def evalSet(x):
 	return retSet
 
 def evalArrayMap(x):
+        if(len(x)%2!=0):
+                raise FunctionNotFound
 	retDict=dict()
 	i=0
 	while i < len(x):
-		retDict[x[i].split(':')[1]]=x[i+1]
+		retDict[x[i]]=x[i+1]
 		i+=2
 	return retDict
