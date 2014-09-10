@@ -36,8 +36,8 @@ class LISPparser(object):
     
     def p_expression(self, p):
         """expression : '(' ID expr_list ')'   
-                        | '(' defn ID list expr_list ')' 
-                        | '(' LOOP expression expr_list ')'
+                        | '(' defun ID list expr_list ')'
+                        | '(' loop expression expr_list ')'
                         | atom"""
         if(len(p) == 2):
             p[0] = p[1]

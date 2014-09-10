@@ -5,9 +5,9 @@ _tabversion = '3.2'
 
 _lr_method = 'LALR'
 
-_lr_signature = ')\xc2\x98v\xee\xfb\xa0M\xf9\xd7\xb3\x89\x1e\x9b\xe0['
+_lr_signature = '$\xc073\xb8\x91\n\xde\x8am\xca\xf6\x8f\xb8Z='
     
-_lr_action_items = {'STRING':([0,1,2,3,5,6,7,9,10,11,12,14,15,16,17,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[2,-9,-10,-12,-7,2,2,-8,-3,-13,2,2,2,-2,2,2,-11,-4,2,2,2,2,-14,2,-6,-5,-16,2,-15,]),')':([1,2,3,5,9,10,11,15,16,17,20,21,23,24,25,27,28,29,32,],[-9,-10,-12,-7,-8,-3,-13,20,-2,21,-11,-4,26,28,29,30,-6,-5,33,]),'(':([0,1,2,3,5,6,7,9,10,11,12,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[4,-9,-10,-12,-7,4,4,-8,-3,-13,4,4,4,-2,4,23,4,-11,-4,4,4,4,4,-14,4,-6,-5,-16,4,-15,]),'FLOAT':([0,1,2,3,5,6,7,9,10,11,12,14,15,16,17,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[1,-9,-10,-12,-7,1,1,-8,-3,-13,1,1,1,-2,1,1,-11,-4,1,1,1,1,-14,1,-6,-5,-16,1,-15,]),'.':([1,2,3,5,9,10,11,16,20,21,27,28,29,],[-9,-10,-12,-7,-8,-3,-13,-2,-11,-4,31,-6,-5,]),'BRACKET':([0,1,2,3,5,6,7,9,10,11,12,14,15,16,17,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[6,-9,-10,-12,-7,6,6,-8,-3,-13,6,6,6,-2,6,6,-11,-4,6,6,6,6,-14,6,-6,-5,-16,6,-15,]),'INTEGER':([0,1,2,3,5,6,7,9,10,11,12,14,15,16,17,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[9,-9,-10,-12,-7,9,9,-8,-3,-13,9,9,9,-2,9,9,-11,-4,9,9,9,9,-14,9,-6,-5,-16,9,-15,]),'defn':([4,],[13,]),'ID':([0,1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[11,-9,-10,-12,12,-7,11,11,-8,-3,-13,11,18,11,11,-2,11,11,-11,-4,11,11,11,11,-14,11,-6,-5,-16,11,-15,]),'LOOP':([4,],[14,]),'$end':([1,2,3,5,7,8,9,10,11,16,20,21,28,29,],[-9,-10,-12,-7,-1,0,-8,-3,-13,-2,-11,-4,-6,-5,]),}
+_lr_action_items = {'STRING':([0,1,2,3,5,6,7,9,10,11,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[2,-9,-10,-12,-7,2,2,-8,-3,-13,2,2,2,-2,2,2,-11,2,2,-4,2,2,-14,2,-6,-5,-16,2,-15,]),')':([1,2,3,5,9,10,11,15,16,18,20,22,23,24,25,27,28,29,32,],[-9,-10,-12,-7,-8,-3,-13,20,-2,23,-11,26,-4,28,29,30,-6,-5,33,]),'(':([0,1,2,3,5,6,7,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[4,-9,-10,-12,-7,4,4,-8,-3,-13,4,4,4,-2,22,4,4,-11,4,4,-4,4,4,-14,4,-6,-5,-16,4,-15,]),'FLOAT':([0,1,2,3,5,6,7,9,10,11,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[1,-9,-10,-12,-7,1,1,-8,-3,-13,1,1,1,-2,1,1,-11,1,1,-4,1,1,-14,1,-6,-5,-16,1,-15,]),'defun':([4,],[12,]),'.':([1,2,3,5,9,10,11,16,20,23,27,28,29,],[-9,-10,-12,-7,-8,-3,-13,-2,-11,-4,31,-6,-5,]),'BRACKET':([0,1,2,3,5,6,7,9,10,11,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[6,-9,-10,-12,-7,6,6,-8,-3,-13,6,6,6,-2,6,6,-11,6,6,-4,6,6,-14,6,-6,-5,-16,6,-15,]),'INTEGER':([0,1,2,3,5,6,7,9,10,11,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[9,-9,-10,-12,-7,9,9,-8,-3,-13,9,9,9,-2,9,9,-11,9,9,-4,9,9,-14,9,-6,-5,-16,9,-15,]),'ID':([0,1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,],[11,-9,-10,-12,13,-7,11,11,-8,-3,-13,17,11,11,11,-2,11,11,-11,11,11,-4,11,11,-14,11,-6,-5,-16,11,-15,]),'loop':([4,],[14,]),'$end':([1,2,3,5,7,8,9,10,11,16,20,23,28,29,],[-9,-10,-12,-7,-1,0,-8,-3,-13,-2,-11,-4,-6,-5,]),}
 
 _lr_action = { }
 for _k, _v in _lr_action_items.items():
@@ -16,7 +16,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'expr_list':([0,6,12,19,22,23,],[7,15,17,24,25,27,]),'idname':([0,6,7,12,14,15,17,19,22,23,24,25,27,31,],[3,3,3,3,3,3,3,3,3,3,3,3,3,3,]),'list':([18,],[22,]),'atom':([0,6,7,12,14,15,17,19,22,23,24,25,27,31,],[5,5,5,5,5,5,5,5,5,5,5,5,5,5,]),'input':([0,],[8,]),'expression':([0,6,7,12,14,15,17,19,22,23,24,25,27,31,],[10,10,16,10,19,16,16,10,10,10,16,16,16,32,]),}
+_lr_goto_items = {'expr_list':([0,6,13,19,21,22,],[7,15,18,24,25,27,]),'idname':([0,6,7,13,14,15,18,19,21,22,24,25,27,31,],[3,3,3,3,3,3,3,3,3,3,3,3,3,3,]),'list':([17,],[21,]),'atom':([0,6,7,13,14,15,18,19,21,22,24,25,27,31,],[5,5,5,5,5,5,5,5,5,5,5,5,5,5,]),'input':([0,],[8,]),'expression':([0,6,7,13,14,15,18,19,21,22,24,25,27,31,],[10,10,16,10,19,16,16,10,10,10,16,16,16,32,]),}
 
 _lr_goto = { }
 for _k, _v in _lr_goto_items.items():
@@ -26,20 +26,20 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> input","S'",1,None,None,None),
-  ('input -> expr_list','input',1,'p_input','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',25),
-  ('expr_list -> expr_list expression','expr_list',2,'p_expr_list','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',29),
-  ('expr_list -> expression','expr_list',1,'p_expr_list','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',30),
-  ('expression -> ( ID expr_list )','expression',4,'p_expression','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',38),
-  ('expression -> ( defn ID list expr_list )','expression',6,'p_expression','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',39),
-  ('expression -> ( LOOP expression expr_list )','expression',5,'p_expression','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',40),
-  ('expression -> atom','expression',1,'p_expression','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',41),
-  ('atom -> INTEGER','atom',1,'p_atom','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',53),
-  ('atom -> FLOAT','atom',1,'p_atom','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',54),
-  ('atom -> STRING','atom',1,'p_atom','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',55),
-  ('atom -> BRACKET expr_list )','atom',3,'p_atom','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',56),
-  ('atom -> idname','atom',1,'p_atom','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',57),
-  ('idname -> ID','idname',1,'p_idname','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',66),
-  ('list -> ( )','list',2,'p_list','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',71),
-  ('list -> ( expr_list . expression )','list',5,'p_list','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',72),
-  ('list -> ( expr_list )','list',3,'p_list','c:\\DropBox\\Workspaces\\GitHub\\ClojureInterpreter\\LISPparser.py',73),
+  ('input -> expr_list','input',1,'p_input','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',25),
+  ('expr_list -> expr_list expression','expr_list',2,'p_expr_list','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',29),
+  ('expr_list -> expression','expr_list',1,'p_expr_list','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',30),
+  ('expression -> ( ID expr_list )','expression',4,'p_expression','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',38),
+  ('expression -> ( defun ID list expr_list )','expression',6,'p_expression','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',39),
+  ('expression -> ( loop expression expr_list )','expression',5,'p_expression','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',40),
+  ('expression -> atom','expression',1,'p_expression','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',41),
+  ('atom -> INTEGER','atom',1,'p_atom','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',53),
+  ('atom -> FLOAT','atom',1,'p_atom','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',54),
+  ('atom -> STRING','atom',1,'p_atom','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',55),
+  ('atom -> BRACKET expr_list )','atom',3,'p_atom','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',56),
+  ('atom -> idname','atom',1,'p_atom','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',57),
+  ('idname -> ID','idname',1,'p_idname','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',66),
+  ('list -> ( )','list',2,'p_list','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',71),
+  ('list -> ( expr_list . expression )','list',5,'p_list','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',72),
+  ('list -> ( expr_list )','list',3,'p_list','/cygdrive/c/Users/patrykkurczyna/PycharmProjects/ClojureInterpreter/LISPparser.py',73),
 ]
