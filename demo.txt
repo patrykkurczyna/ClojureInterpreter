@@ -94,4 +94,4 @@
 (println "(set (list 1 2 2)) = ") (println (set (list 1 2 2)))
 (println "(set ''asdf'') = ") (println (set "asdf"))
 (println "(arraymap (list 1 2) (list 3 4)) = ") (println (arraymap (list 1 2) (list 3 4)))
-
+(println "(arraymap :a 1 :b 2) =") (arraymap :a 1 :b 2)
