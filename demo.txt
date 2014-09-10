@@ -80,7 +80,7 @@
 (println "--------------------------------------")
 (println "          DEFINIOWANIE WLASNYCH FUNKCJI          ")
 (println "--------------------------------------")
-(println "(defun suma (x y) (+ x x) (+ x y))") (defun suma (x y) (+ x x) (+ x y))
+(println "(defn suma (x y) (+ x x) (+ x y))") (defn suma (x y) (+ x x) (+ x y))
 (println "--------------------------------------")
 (println "(suma 2 3) = ") (println (suma 2 3))
 (println "--------------------------------------")
