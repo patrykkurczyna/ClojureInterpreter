@@ -117,7 +117,7 @@ def evalSet(x):
 	return retSet
 
 def evalArrayMap(x):
-	if len(x)>0:
+	if len(x)==2:
 		retDict=dict()
 		i=0
 		for element in x[0]:
