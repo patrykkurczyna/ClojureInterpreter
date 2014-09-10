@@ -93,6 +93,10 @@
 (println "(map + (list 1 2) (list 3 4)) = ") (println (map + (list 1 2) (list 3 4)))
 (println "(map / (list 3 5) (list 2 4)) = ") (println (map / (list 3 5) (list 2 4)))
 (println "--------------------------------------")
+
 (println "(set (vector 1 2 2)) = ") (set (vector 1 2 2))
 (println "(set ''asdf'') = ") (set "asdf")
-;(println "[1 2]= ") (println [1 2])
+(println "(set (vector 1 2 2)) = ") (println (set (vector 1 2 2)))
+(println "(first '(1)") (println (first '(1)))
+(println "(array-map (list 1 2) (list 3 4))") (println (array-map (list 1 2) (list 3 4)))
+
