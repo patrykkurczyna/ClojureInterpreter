@@ -7,7 +7,7 @@ Rule 1     input -> expr_list
 Rule 2     expr_list -> expr_list expression
 Rule 3     expr_list -> expression
 Rule 4     expression -> ( ID expr_list )
-Rule 5     expression -> ( defun ID list expr_list )
+Rule 5     expression -> ( defn ID list expr_list )
 Rule 6     expression -> ( loop expression expr_list )
 Rule 7     expression -> atom
 Rule 8     atom -> INTEGER
@@ -30,7 +30,7 @@ FLOAT                : 9
 ID                   : 4 5 13
 INTEGER              : 8
 STRING               : 10
-defun                : 5
+defn                 : 5
 error                : 
 loop                 : 6
 
@@ -52,7 +52,7 @@ state 0
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -123,11 +123,11 @@ state 3
 state 4
 
     (4) expression -> ( . ID expr_list )
-    (5) expression -> ( . defun ID list expr_list )
+    (5) expression -> ( . defn ID list expr_list )
     (6) expression -> ( . loop expression expr_list )
 
-    ID              shift and go to state 13
-    defun           shift and go to state 12
+    ID              shift and go to state 12
+    defn            shift and go to state 13
     loop            shift and go to state 14
 
 
@@ -142,8 +142,8 @@ state 5
     STRING          reduce using rule 7 (expression -> atom .)
     BRACKET         reduce using rule 7 (expression -> atom .)
     ID              reduce using rule 7 (expression -> atom .)
-    .               reduce using rule 7 (expression -> atom .)
     $end            reduce using rule 7 (expression -> atom .)
+    .               reduce using rule 7 (expression -> atom .)
 
 
 state 6
@@ -152,7 +152,7 @@ state 6
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -179,7 +179,7 @@ state 7
     (1) input -> expr_list .
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -248,24 +248,17 @@ state 11
     STRING          reduce using rule 13 (idname -> ID .)
     BRACKET         reduce using rule 13 (idname -> ID .)
     ID              reduce using rule 13 (idname -> ID .)
-    .               reduce using rule 13 (idname -> ID .)
     $end            reduce using rule 13 (idname -> ID .)
+    .               reduce using rule 13 (idname -> ID .)
 
 
 state 12
-
-    (5) expression -> ( defun . ID list expr_list )
-
-    ID              shift and go to state 17
-
-
-state 13
 
     (4) expression -> ( ID . expr_list )
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -282,16 +275,23 @@ state 13
     BRACKET         shift and go to state 6
     ID              shift and go to state 11
 
-    expr_list                      shift and go to state 18
+    expr_list                      shift and go to state 17
     idname                         shift and go to state 3
     expression                     shift and go to state 10
     atom                           shift and go to state 5
+
+state 13
+
+    (5) expression -> ( defn . ID list expr_list )
+
+    ID              shift and go to state 18
+
 
 state 14
 
     (6) expression -> ( loop . expression expr_list )
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -317,7 +317,7 @@ state 15
     (11) atom -> BRACKET expr_list . )
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -356,21 +356,10 @@ state 16
 
 state 17
 
-    (5) expression -> ( defun ID . list expr_list )
-    (14) list -> . ( )
-    (15) list -> . ( expr_list . expression )
-    (16) list -> . ( expr_list )
-
-    (               shift and go to state 22
-
-    list                           shift and go to state 21
-
-state 18
-
     (4) expression -> ( ID expr_list . )
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -380,7 +369,7 @@ state 18
     (12) atom -> . idname
     (13) idname -> . ID
 
-    )               shift and go to state 23
+    )               shift and go to state 21
     (               shift and go to state 4
     INTEGER         shift and go to state 9
     FLOAT           shift and go to state 1
@@ -392,13 +381,24 @@ state 18
     expression                     shift and go to state 16
     atom                           shift and go to state 5
 
+state 18
+
+    (5) expression -> ( defn ID . list expr_list )
+    (14) list -> . ( )
+    (15) list -> . ( expr_list . expression )
+    (16) list -> . ( expr_list )
+
+    (               shift and go to state 23
+
+    list                           shift and go to state 22
+
 state 19
 
     (6) expression -> ( loop expression . expr_list )
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -437,11 +437,26 @@ state 20
 
 state 21
 
-    (5) expression -> ( defun ID list . expr_list )
+    (4) expression -> ( ID expr_list ) .
+
+    )               reduce using rule 4 (expression -> ( ID expr_list ) .)
+    (               reduce using rule 4 (expression -> ( ID expr_list ) .)
+    INTEGER         reduce using rule 4 (expression -> ( ID expr_list ) .)
+    FLOAT           reduce using rule 4 (expression -> ( ID expr_list ) .)
+    STRING          reduce using rule 4 (expression -> ( ID expr_list ) .)
+    BRACKET         reduce using rule 4 (expression -> ( ID expr_list ) .)
+    ID              reduce using rule 4 (expression -> ( ID expr_list ) .)
+    $end            reduce using rule 4 (expression -> ( ID expr_list ) .)
+    .               reduce using rule 4 (expression -> ( ID expr_list ) .)
+
+
+state 22
+
+    (5) expression -> ( defn ID list . expr_list )
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -463,7 +478,7 @@ state 21
     expression                     shift and go to state 10
     atom                           shift and go to state 5
 
-state 22
+state 23
 
     (14) list -> ( . )
     (15) list -> ( . expr_list . expression )
@@ -471,7 +486,7 @@ state 22
     (2) expr_list -> . expr_list expression
     (3) expr_list -> . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -494,27 +509,12 @@ state 22
     expression                     shift and go to state 10
     atom                           shift and go to state 5
 
-state 23
-
-    (4) expression -> ( ID expr_list ) .
-
-    )               reduce using rule 4 (expression -> ( ID expr_list ) .)
-    (               reduce using rule 4 (expression -> ( ID expr_list ) .)
-    INTEGER         reduce using rule 4 (expression -> ( ID expr_list ) .)
-    FLOAT           reduce using rule 4 (expression -> ( ID expr_list ) .)
-    STRING          reduce using rule 4 (expression -> ( ID expr_list ) .)
-    BRACKET         reduce using rule 4 (expression -> ( ID expr_list ) .)
-    ID              reduce using rule 4 (expression -> ( ID expr_list ) .)
-    .               reduce using rule 4 (expression -> ( ID expr_list ) .)
-    $end            reduce using rule 4 (expression -> ( ID expr_list ) .)
-
-
 state 24
 
     (6) expression -> ( loop expression expr_list . )
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -538,10 +538,10 @@ state 24
 
 state 25
 
-    (5) expression -> ( defun ID list expr_list . )
+    (5) expression -> ( defn ID list expr_list . )
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -581,7 +581,7 @@ state 27
     (16) list -> ( expr_list . )
     (2) expr_list -> expr_list . expression
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER
@@ -615,23 +615,23 @@ state 28
     STRING          reduce using rule 6 (expression -> ( loop expression expr_list ) .)
     BRACKET         reduce using rule 6 (expression -> ( loop expression expr_list ) .)
     ID              reduce using rule 6 (expression -> ( loop expression expr_list ) .)
-    .               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
     $end            reduce using rule 6 (expression -> ( loop expression expr_list ) .)
+    .               reduce using rule 6 (expression -> ( loop expression expr_list ) .)
 
 
 state 29
 
-    (5) expression -> ( defun ID list expr_list ) .
+    (5) expression -> ( defn ID list expr_list ) .
 
-    )               reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    (               reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    INTEGER         reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    FLOAT           reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    STRING          reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    BRACKET         reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    ID              reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    .               reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
-    $end            reduce using rule 5 (expression -> ( defun ID list expr_list ) .)
+    )               reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    (               reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    INTEGER         reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    FLOAT           reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    STRING          reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    BRACKET         reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    ID              reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    $end            reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
+    .               reduce using rule 5 (expression -> ( defn ID list expr_list ) .)
 
 
 state 30
@@ -650,7 +650,7 @@ state 31
 
     (15) list -> ( expr_list . . expression )
     (4) expression -> . ( ID expr_list )
-    (5) expression -> . ( defun ID list expr_list )
+    (5) expression -> . ( defn ID list expr_list )
     (6) expression -> . ( loop expression expr_list )
     (7) expression -> . atom
     (8) atom -> . INTEGER

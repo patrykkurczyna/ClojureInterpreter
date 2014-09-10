@@ -18,7 +18,7 @@ builtIns = {
 	'and' : lambda x: evalAnd(x),
 	'or' : lambda x: evalOr(x),
 
-	'first'    : lambda x: x[0][0],
+	'first'    : lambda x: evalFirst(x),
 	'rest'    : lambda x: x[0][1:],
 	'substring' : lambda x: x[2][x[0]:x[1]],
 	'nth'    : lambda x: x[1][x[0]],
@@ -34,6 +34,12 @@ builtIns = {
 
 	'if'	 : lambda x: (x[2], x[1])[x[0] != "nil" and x[0] != "false"]
 }
+
+def evalFirst(x):
+    if x[0] != "nil":
+        return x[0][0]
+    else:
+        return ""
 
 def evalBoolExpr(x, sign):
 	for i in range(len(x)-1):
