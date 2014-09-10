@@ -23,7 +23,7 @@ class Scanner(object):
 
 
 
-  literals = "()"
+  literals = "()[]"
 
 
   reserved = {
@@ -32,7 +32,7 @@ class Scanner(object):
   }
 
 
-  tokens = [ "FLOAT", "ID", "INTEGER", "STRING", "BRACKET"
+  tokens = [ "FLOAT", "ID", "INTEGER", "STRING", "BRACKET", "SQBRACKET"
            ] + list(reserved.values())
            
 
@@ -76,6 +76,10 @@ class Scanner(object):
   def t_BRACKET(self,t):
       r'\'\('
       return t
+
+  def t_SQBRACKET(self,t):
+    r'\'\['
+    return t
 
   def t_COMMENT(self, t):
     r'[;][^\n]*'

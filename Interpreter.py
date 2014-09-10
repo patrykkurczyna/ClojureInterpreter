@@ -75,6 +75,10 @@ class Interpreter(object):
     def visit(self, node):
         return map(lambda x: x.accept2(self), node.arguments)
 
+    @when(AST.Vector)
+    def visit(self,node):
+        return map(lambda x: x.accept2(self), node.arguments)
+
     @when(AST.Atom)
     def visit(self, node):
         if(isinstance(node.value, AST.IdName)):

@@ -36,9 +36,9 @@ class LISPparser(object):
     
     def p_expression(self, p):
         """expression : '(' ID expr_list ')'   
-                        | '(' defn ID list expr_list ')'
+                        | '(' defn ID vector expr_list ')'
                         | '(' loop expression expr_list ')'
-                        | atom"""
+                        | atom """
         if(len(p) == 2):
             p[0] = p[1]
         elif(len(p) == 5):
@@ -54,6 +54,7 @@ class LISPparser(object):
                  | FLOAT
                  | STRING
                  | BRACKET expr_list ')'
+                 | SQBRACKET expr_list ']'
                  | idname"""
         if(len(p) == 4):
             p[0] = List()
@@ -67,10 +68,22 @@ class LISPparser(object):
         p[0] = IdName(p[1])
         # p[0].set_lineno(self.scanner.lineno)
 
+    def p_vector(self, p):
+        """vector : '[' ']' 
+                 | '[' expr_list ']'"""
+        p[0] = Vector()
+        if(len(p) == 3):
+            p[0].add_argument(p[2])
+        elif(len(p) == 4):
+            p[0].add_argument_vector(p[2])
+        else:
+            p[2].add_argument(p[4])
+            p[0].add_argument_list(p[2])
+        # p[0].set_lineno(self.scanner.lineno)
+
     def p_list(self, p):
-        """list : '(' ')' 
-                 | '(' expr_list '.' expression ')'
-                 | '(' expr_list ')' """
+        """list : '(' ')'
+                 | '(' expr_list ')'"""
         p[0] = List()
         if(len(p) == 3):
             p[0].add_argument(p[2])
@@ -80,3 +93,4 @@ class LISPparser(object):
             p[2].add_argument(p[4])
             p[0].add_argument_list(p[2])
         # p[0].set_lineno(self.scanner.lineno)
+
