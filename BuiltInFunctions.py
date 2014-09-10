@@ -6,7 +6,7 @@ builtIns = {
 	'+'  : lambda x: reduce(lambda d,y: d+y, x),
 	'-'  : lambda x: reduce(lambda d,y: d-y, x),
 	'*'  : lambda x: reduce(lambda d,y: d*y, x),
-	'/'  : lambda x: reduce(lambda d,y: d/y, x),
+	'/'  : lambda x: reduce(lambda d,y: d/float(y), x),
 
 	'<'  : lambda x: evalBoolExpr(x, '<'),
 	'>'  : lambda x: evalBoolExpr(x, '>'),
