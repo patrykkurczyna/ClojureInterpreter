@@ -91,4 +91,7 @@ def evalMap(x):
 	return dict(x)
 
 def evalSet(x):
-	return set(x)
+	retSet=set()
+	for elem in x[0]:
+		retSet.add(elem)
+	return retSet

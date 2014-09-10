@@ -98,5 +98,4 @@
 (println "--------------------------------------")
 (println "(map (list 1 2) (list 3 4)) = ") (println (map (list 1 2) (list 3 4)))
 (println "--------------------------------------")
-(println "(set 1 2) = ") (set 1 2)
-(println "--------------------------------------")
+(println "(set 1 2) = ") (set (vector 1 2))
