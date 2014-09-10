@@ -1,4 +1,5 @@
 import Interpreter
+import array
 from Exceptions import *
 
 builtIns = {
@@ -23,6 +24,11 @@ builtIns = {
 	'nth'    : lambda x: x[1][x[0]],
 	'length' : lambda x: evalLength(x[0]),
 
+	'list' : lambda x: evalList(x),
+	'vector' : lambda x: evalVector(x),
+	'map' : lambda x: evalMap(x),
+	'set' : lambda x: evalSet(x),
+	
 	'println'  : lambda x: evalPrint(x[0]),
 	'def'   : lambda x: evalSetq(x),
 
@@ -74,3 +80,15 @@ def evalSetq(x):
 	if Interpreter.Interpreter.globalMemory.set(x[0], x[1]) == False:
 		Interpreter.Interpreter.globalMemory.insert(x[0], x[1])
 	return x[1]
+	
+def evalList(x):
+    return list(x)
+
+def evalVector(x):
+	return list(x)
+
+def evalMap(x):
+	return dict(x)
+
+def evalSet(x):
+	return set(x)
