@@ -91,6 +91,8 @@ def evalMap(x):
 	return dict(x)
 
 def evalSet(x):
+	if len(x)>1:
+		raise FunctionNotFound
 	retSet=set()
 	for elem in x[0]:
 		retSet.add(elem)
