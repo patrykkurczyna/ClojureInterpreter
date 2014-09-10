@@ -48,4 +48,4 @@
 (println "(list 1 2) = ") (println (list 1 2))
 (println "(vector 1 2) = ") (println (vector 1 2))
 (println "(map (list 1 2) (list 3 4)) = ") (println (map (list 1 2) (list 3 4)))
-(println "(set 1 2) = ") (set 1 2)
+(println "(set 1 2) = ") (set (vector 1 2))
