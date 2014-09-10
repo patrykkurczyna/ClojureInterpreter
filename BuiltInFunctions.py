@@ -111,17 +111,15 @@ def evalSet(x):
 	return retSet
 
 def evalArrayMap(x):
-	if len(x)==2:
-		retDict=dict()
-		i=0
-		for element in x[0]:
-			retDict[element]=x[1][i]
-			i+=1
-		return retDict
-	if len(x)>2:
-		retDict=dict()
-		i=0
+	retDict=dict()
+	i=0
+	if(x[0][0]==':'):
 		while i < len(x):
 			retDict[x[i].split(':')[1]]=x[i+1]
 			i+=2
+		return retDict
+	else:
+		for element in x[0]:
+			retDict[element]=x[1][i]
+			i+=1
 		return retDict
