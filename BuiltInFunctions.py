@@ -28,6 +28,7 @@ builtIns = {
 	'vector' : lambda x: evalVector(x),
 	'map' : lambda x: evalMap(x),
 	'set' : lambda x: evalSet(x),
+	'array-map' : lambda x: evalArrayMap(x),
 	
 	'println'  : lambda x: evalPrint(x[0]),
 	'def'   : lambda x: evalSetq(x),
@@ -114,3 +115,12 @@ def evalSet(x):
 	for elem in x[0]:
 		retSet.add(elem)
 	return retSet
+
+def evalArrayMap(x):
+	if len(x)>0:
+		retDict=dict()
+		i=0
+		for element in x[0]:
+			retDict[element]=x[1][i]
+			i+=1
+		return retDict
