@@ -1,7 +1,7 @@
 
 import sys
 import ply.yacc as yacc
-from ClojureParser import LISPparser
+from ClojureParser import ClojureParser
 from Interpreter import Interpreter
 
 
@@ -14,15 +14,15 @@ if __name__ == '__main__':
             print("Cannot open {0} file".format(filename))
             sys.exit(0)
 
-        LISPparser = LISPparser()
-        parser = yacc.yacc(module=LISPparser)
+        ClojureParser = ClojureParser()
+        parser = yacc.yacc(module=ClojureParser)
 
         text = file.read()
-        ast = parser.parse(text, lexer=LISPparser.scanner)
+        ast = parser.parse(text, lexer=ClojureParser.scanner)
         ast.accept2(Interpreter())
     else:
-        LISPparser = LISPparser()
-        parser = yacc.yacc(module=LISPparser)
+        ClojureParser = ClojureParser()
+        parser = yacc.yacc(module=ClojureParser)
 
         print "Type \"exit\" or empty line to quit"
 
@@ -34,7 +34,7 @@ if __name__ == '__main__':
         while line:
             if line.rstrip("\n") == "exit":
                 break
-            ast = parser.parse(line, lexer=LISPparser.scanner)
+            ast = parser.parse(line, lexer=ClojureParser.scanner)
             ast.accept2(Interpreter())
             print "["+str(lineNumber)+"]>>",
             line = sys.stdin.readline()

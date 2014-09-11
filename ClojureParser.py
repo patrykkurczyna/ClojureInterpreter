@@ -3,8 +3,8 @@ from scanner import Scanner
 from AST import *
 
 
+class ClojureParser(object):
 
-class LISPparser(object):
 
     def __init__(self):
         self.scanner = Scanner()
