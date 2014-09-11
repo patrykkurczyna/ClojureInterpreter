@@ -1,7 +1,7 @@
 
 import sys
 import ply.yacc as yacc
-from LISPparser import LISPparser
+from ClojureParser import LISPparser
 from Interpreter import Interpreter
 
 
