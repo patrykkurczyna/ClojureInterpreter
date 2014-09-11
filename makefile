@@ -1,21 +1,31 @@
+arithm: 
+	python main.py arytmetyczne.txt
 
-all : run clean
+expr: 
+	python main.py wyrazenia.txt
 
-rune: example clean
-
-runt: tests clean
+logic: 
+	python main.py logiczne.txt
+	
+comp: 
+	python main.py porownania.txt
+	
+coll: 
+	python main.py kolekcje.txt
+	
+strings: 
+	python main.py stringi.txt
 
 run:
-	python main.py
-
-example:
-	python main.py example.txt
-
+	tests clean
+	
 tests:
-	python main.py test.txt
+	python main.py arytmetyczne.txt
+	python main.py wyrazenia.txt
+	python main.py logiczne.txt
+	python main.py porownania.txt
+	python main.py kolekcje.txt
+	python main.py stringi.txt
 
-demo:
-	python main.py demo.lispek
-
-clean: 
+clean:
 	rm -f *.pyc parser.out parsetab.py *~
