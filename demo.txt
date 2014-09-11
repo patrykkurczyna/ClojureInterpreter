@@ -81,8 +81,10 @@
 (println "          DEFINIOWANIE WLASNYCH FUNKCJI          ")
 (println "--------------------------------------")
 (println "(defn suma [x y] (+ x y))") (defn suma [x y] (+ x y))
+(println "(defn complex [x y z] (+ (* x y) z))") (defn complex [x y z] (+ (* x y) z))
 (println "--------------------------------------")
 (println "(suma 2 3) = ") (println (suma 2 3))
+(println "(complex 2 4 6) = ") (println (complex 2 4 6))
 (println "--------------------------------------")
 (println "           TWORZENIE KOLEKCJI            ")
 (println "--------------------------------------")
@@ -93,6 +95,7 @@
 (println "--------------------------------------")
 (println "(set (list 1 2 2)) = ") (println (set (list 1 2 2)))
 (println "(set ''asdf'') = ") (println (set "asdf"))
-(println "(arraymap :a 1 :b 2) =") (println (arraymap :a 1 :b 2))
-(println '( "a" 1 3 :cb))
+(println "(arraymap :a 1 :b 2 3 5) =") (println (arraymap :a 1 :b 2 3 5))
+(println "(list ''a'' 1 3 :cb) =") (list "a" 1 3 :cb)
+
 
