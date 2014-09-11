@@ -1,3 +1,4 @@
+(println "--------------------------------------")
 (println "          OPERACJE LOGICZNE             ")
 (println "--------------------------------------")
 (println "(not nil) = " ) (println (not nil))
