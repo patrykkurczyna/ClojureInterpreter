@@ -11,7 +11,7 @@ if __name__ == '__main__':
             filename = sys.argv[1]
             file = open(filename, "r")
         except IOError:
-            print("Cannot open {0} file".format(filename))
+            print("Error while trying to open {0} file".format(filename))
             sys.exit(0)
 
         ClojureParser = ClojureParser()
@@ -23,19 +23,17 @@ if __name__ == '__main__':
     else:
         ClojureParser = ClojureParser()
         parser = yacc.yacc(module=ClojureParser)
-
-        print "Type \"exit\" or empty line to quit"
-
-        lineNumber = 1
-        print "["+str(lineNumber)+"]>>",
+        print "Welcome to Clojure Interpreter "
+        print " "
+        print "Type 'exit' to quit."
+        print " "
+        print ">>>",
         line = sys.stdin.readline()
-        lineNumber += 1
 
         while line:
             if line.rstrip("\n") == "exit":
                 break
             ast = parser.parse(line, lexer=ClojureParser.scanner)
             ast.accept2(Interpreter())
-            print "["+str(lineNumber)+"]>>",
+            print ">>>",
             line = sys.stdin.readline()
-            lineNumber += 1
